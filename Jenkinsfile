@@ -1,7 +1,7 @@
-﻿pipeline {
+pipeline {
 
   environment {
-    dockerimagename = "esppfcorp/react-app"
+    dockerimagename = "bravinwasike/react-app"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/esppfcorp/jenkins-kubernetes-deployment.git'
+        git 'https://github.com/Bravinsimiyu/jenkins-kubernetes-deployment.git'
       }
     }
 
@@ -36,7 +36,7 @@
       }
     }
 
-    stage('Deploying React.js container to Kubernetes') {
+    stage('Deploying App to Kubernetes') {
       steps {
         script {
           kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
